@@ -1,5 +1,5 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 module.exports = {
   development: {
@@ -19,4 +19,4 @@ module.exports = {
       directory: './seeds',
     },
   },
-};
+}

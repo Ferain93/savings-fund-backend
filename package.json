@@ -8,7 +8,10 @@
     "start": "node src/server.js",
     "migrate": "knex migrate:latest --knexfile database/knexfile.js",
     "migrate:rollback": "knex migrate:rollback --knexfile database/knexfile.js",
-    "seed": "knex seed:run --knexfile database/knexfile.js"
+    "seed": "knex seed:run --knexfile database/knexfile.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -17,12 +20,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Ferain93/savings-fund-backend/issues"
   },
   "homepage": "https://github.com/Ferain93/savings-fund-backend#readme",
   "dependencies": {
+    "@koa/cors": "^5.0.0",
     "dotenv": "^17.3.1",
     "knex": "^3.2.8",
     "koa": "^3.2.0",
@@ -32,6 +35,11 @@
     "mysql2": "^3.20.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^17.24.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.3"
   }
 }
