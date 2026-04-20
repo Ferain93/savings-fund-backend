@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 exports.seed = async function (knex) {
   // Limpiar en orden inverso por FK
   await knex('members').del()
@@ -10,21 +12,23 @@ exports.seed = async function (knex) {
     { id: 2, name: 'socio' },
   ])
 
-  // Users (passwords hasheadas con bcrypt — estos son placeholders)
+  const passwordHash = await bcrypt.hash('password123', 10)
+
+  // Users
   await knex('users').insert([
     {
       email: 'admin@savingsfund.com',
-      password_hash: '$2b$10$placeholder_admin_hash',
+      password_hash: passwordHash,
       role_id: 1,
     },
     {
       email: 'socio1@savingsfund.com',
-      password_hash: '$2b$10$placeholder_socio1_hash',
+      password_hash: passwordHash,
       role_id: 2,
     },
     {
       email: 'socio2@savingsfund.com',
-      password_hash: '$2b$10$placeholder_socio2_hash',
+      password_hash: passwordHash,
       role_id: 2,
     },
   ])
